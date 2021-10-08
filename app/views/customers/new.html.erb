@@ -1,0 +1,13 @@
+<h4>Import Customers Details</h4>
+
+<%= form_tag(customers_path, method: :post, multipart: true) do %>
+  <div class="row">
+    <%= label_tag(:customers_import_csv, 'CSV File:') %>
+    <%= file_field_tag(:customers_import_csv, accept: '.csv', required: true) %>
+  </div>
+  <%= submit_tag('Upload') %>
+<% end %>
+
+<br>
+
+<%= link_to 'Back', customers_path %>

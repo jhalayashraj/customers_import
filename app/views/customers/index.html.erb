@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Customers</h1>
+
+<%= link_to 'Import Customers', new_customer_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Nationality</th>
+      <th>Email</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th>Chassis Number</th>
+      <th>Color</th>
+      <th>Registration Date</th>
+      <th>Odometer Reading</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customers.find_each do |customer| %>
+      <% customer.vehicles.each do |vehicle| %>
+        <tr>
+          <td><%= customer.name %></td>
+          <td><%= customer.nationality %></td>
+          <td><%= customer.email %></td>
+          <td><%= vehicle.model %></td>
+          <td><%= vehicle.year %></td>
+          <td><%= vehicle.chassis_number %></td>
+          <td><%= vehicle.color %></td>
+          <td><%= vehicle.registration_date %></td>
+          <td><%= vehicle.odometer_reading %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
